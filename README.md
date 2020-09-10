@@ -4,7 +4,7 @@
 - 💬 Ask me about Web App development, MASK-RCNN, or any of my projects!
 - 📫 How to reach me: Email me at hank.j.wu@gmail.com or book a time at calendly.com/hank-w  
 
-## Hank's Community Chess Tournament
+## Community Chess Tournament
 
 **Game is in progress.** This is open to ANYONE to play the next move. :wave:  It's your turn! Move a piece!
 
@@ -36,3 +36,4 @@ Ask a friend to take the next move: [Share on Twitter...](https://twitter.com/sh
 
 When you click a link, it opens a GitHub Issue with the required pre-populated text. Just push "Create New Issue". That will trigger a [GitHub Actions](https://github.blog/2020-07-03-github-action-hero-casey-lee/#getting-started-with-github-actions) workflow that'll update my GitHub Profile  with the new state of the board.
 
+Huge Thanks to @Tim Burgan for the game, I'll be adding new features, including scripts for clickable boards and Stockfish chess engine integration to compare user moves with the AI's moves along with a player vs CPU mode!
