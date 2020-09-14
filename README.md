@@ -1,5 +1,5 @@
 
-## Tim's Community Chess Tournament
+## Community Chess Tournament
 
 **Game is in progress.** This is open to ANYONE to play the next move. That's the point. :wave:  It's your turn! Move a white piece.
 
@@ -20,7 +20,6 @@
 | ---- | -- |
 | **B4** | [A3](https://github.com/hank-w/hank-w/issues/new?title=chess%7Cmove%7Cb4a3%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [A4](https://github.com/hank-w/hank-w/issues/new?title=chess%7Cmove%7Cb4a4%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [B5](https://github.com/hank-w/hank-w/issues/new?title=chess%7Cmove%7Cb4b5%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [C4](https://github.com/hank-w/hank-w/issues/new?title=chess%7Cmove%7Cb4c4%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [C5](https://github.com/hank-w/hank-w/issues/new?title=chess%7Cmove%7Cb4c5%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
 
-Ask a friend to take the next move: [Share on Twitter...](https://twitter.com/share?text=I'm+playing+chess+on+a+GitHub+Profile+Readme!+Can+you+please+take+the+next+move+at+https://github.com/hank-w)
 
 **How this works**
 
