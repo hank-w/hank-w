@@ -35,5 +35,3 @@ GitHub actions bot may take an hour to respond, sorry for the delay, check back 
 **How this works**
 
 When you click a link, it opens a GitHub Issue with the required pre-populated text. Just push "Create New Issue". That will trigger a [GitHub Actions](https://github.blog/2020-07-03-github-action-hero-casey-lee/#getting-started-with-github-actions) workflow that'll update my GitHub Profile  with the new state of the board.
-
-Huge Thanks to @Tim Burgan for the game, I'll be adding new features, including scripts for clickable boards and Stockfish chess engine integration to compare user moves with the AI's moves along with a player vs CPU mode!
