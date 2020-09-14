@@ -30,7 +30,7 @@
 | **G7** | [F6](https://github.com/timburgan/timburgan/issues/new?title=chess%7Cmove%7Cg7f6%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [F8](https://github.com/timburgan/timburgan/issues/new?title=chess%7Cmove%7Cg7f8%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [G8](https://github.com/timburgan/timburgan/issues/new?title=chess%7Cmove%7Cg7g8%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [H6](https://github.com/timburgan/timburgan/issues/new?title=chess%7Cmove%7Cg7h6%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [H7](https://github.com/timburgan/timburgan/issues/new?title=chess%7Cmove%7Cg7h7%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) , [H8](https://github.com/timburgan/timburgan/issues/new?title=chess%7Cmove%7Cg7h8%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
 | **H4** | [H3](https://github.com/timburgan/timburgan/issues/new?title=chess%7Cmove%7Ch4h3%7C5270&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
 
-Ask a friend to take the next move: [Share on Twitter...](https://twitter.com/share?text=I'm+playing+chess+on+a+GitHub+Profile+Readme!+Can+you+please+take+the+next+move+at+https://github.com/timburgan)
+GitHub actions bot may take an hour to respond, sorry for the delay, check back later for your move! 
 
 **How this works**
 
