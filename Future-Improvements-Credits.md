@@ -1,4 +1,4 @@
-Huge Thanks to hank Burgan for the game, I'll be adding new features, including scripts for clickable boards and Stockfish chess engine integration to compare user moves with the AI's moves along with a player vs CPU mode!
+Huge Thanks to Tim Burgan for the game, I'll be adding new features, including scripts for clickable boards and Stockfish chess engine integration to compare user moves with the AI's moves along with a player vs CPU mode!
 
 <!--
 ### Hi there 👋
