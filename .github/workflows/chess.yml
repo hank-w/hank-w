@@ -229,11 +229,11 @@ jobs:
               if game.over?
                 # add label = end
                 @octokit.add_labels_to_an_issue(ENV.fetch('REPOSITORY'), ENV.fetch('EVENT_ISSUE_NUMBER'), ["game-over"])
-                game_stats = { moves: 0, players: [], start_time: nil, end_time: nil }
+                game_stats = { moves: 0, players: [], start_hanke: nil, end_hanke: nil }
                 issues&.each do |issue|
                   break if issue.title.start_with? 'chess|new'
                   if game_stats[:moves] == 0
-                    game_stats[:end_time] = issue.created_at
+                    game_stats[:end_hanke] = issue.created_at
                   end
                   game_stats[:moves] += 1
                   if ENV.fetch('REPOSITORY') == 'hank-w/hank-w'
@@ -241,10 +241,10 @@ jobs:
                   else
                     game_stats[:players].push "#{issue.user.login}"
                   end
-                  game_stats[:start_time] = issue.created_at
+                  game_stats[:start_hanke] = issue.created_at
                 end
                 game_stats[:players] = game_stats[:players]&.uniq
-                hours = (game_stats[:start_time] - game_stats[:end_time]).to_i.abs / 3600
+                hours = (game_stats[:start_hanke] - game_stats[:end_hanke]).to_i.abs / 3600
                 @octokit.add_comment(ENV.fetch('REPOSITORY'), ENV.fetch('EVENT_ISSUE_NUMBER'), "That's game over! Thank you for playing that chess game. That game had #{game_stats[:moves]} moves, #{game_stats[:players]&.length} players, and went for #{hours} hours. Let's play again at https://github.com/hank-w.\n\nPlayers that game: #{game_stats[:players].join(', ')}")
               end
           end
@@ -346,7 +346,7 @@ jobs:
 
           new_readme = <<~HTML
 
-            ## Tim's Community Chess Tournament
+            ## hank's Community Chess Tournament
 
             **#{game_state}** This is open to ANYONE to play the next move. That's the point. :wave:  It's your turn! Move a #{(game.board.active_color) ? 'black' : 'white'} piece.
 

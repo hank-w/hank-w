@@ -1,11 +1,11 @@
-Huge Thanks to Tim Burgan for the game, I'll be adding new features, including scripts for clickable boards and Stockfish chess engine integration to compare user moves with the AI's moves along with a player vs CPU mode!
+Huge Thanks to hank Burgan for the game, I'll be adding new features, including scripts for clickable boards and Stockfish chess engine integration to compare user moves with the AI's moves along with a player vs CPU mode!
 
 <!--
 ### Hi there 👋
 
 - 🔭 I’m currently working on RBC Secure Cloud Development as a software developer intern 
 - 💬 Ask me about Web App development, MASK-RCNN, or any of my projects!
-- 📫 How to reach me: Email me at hank.j.wu@gmail.com or book a time at calendly.com/hank-w  
+- 📫 How to reach me: Email me at hank.j.wu@gmail.com or book a hanke at calendly.com/hank-w  
 
 **hank-w/hank-w** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
