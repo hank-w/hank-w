@@ -1,6 +1,3 @@
-<<engine='python', engine.path='python3'>>=
-# python code
-@
 # Note: Press L once to toggle invincibility, if you find
 # your having a bit of trouble winning the levels
 
@@ -91,31 +88,31 @@ player_explosion_list = []
 background_pos = [WIDTH/2,HEIGHT/2]
 scroll_speed = 1
 cycles = 0
-hanke = 0
+time = 0
 score = 0
 stage = ""
 highscore = 0
 
-enemy2_shoot_hanker = 0
-boss_shoot_hanker = 0
+enemy2_shoot_timer = 0
+boss_shoot_timer = 0
 shoot_cooldown = 0
-boss_hanker= 0
+boss_timer= 0
 boss_respawn = False
-boss_respawn_hanker = 0
+boss_respawn_timer = 0
 boss_escape = False
 boss_health = 0
 boss_damage = False
-boss_damage_hanker = 0
-boss_movement_hanker = 0
+boss_damage_timer = 0
+boss_movement_timer = 0
 boss_fight = False
 boss_left = 0
 boss_right = 0
 bullet_x = 49
 diagonalbullet_x = 112
 enemy2_respawn = False
-enemy2_respawn_hanker = 0
+enemy2_respawn_timer = 0
 enemy3_respawn = False
-enemy3_respawn_hanker = 0
+enemy3_respawn_timer = 0
 
 up = False
 down = False
@@ -125,9 +122,9 @@ left = False
 game_started = False
 
 player_is_dead = False
-explosion_hanker = 0
+explosion_timer = 0
 
-text_hanker = 0
+text_timer = 0
 
 fx_volume = 0.5
 music_volume = 0.5
@@ -147,11 +144,11 @@ def dist(pos1, pos2):
 # This functions resets everything when the game is
 # started or restarted.
 def new_game():
-    global player,hanke,boss_hanker,boss_left,boss_right,boss_list,boss_damage_hanker,boss_health, boss_damage,boss_escape, boss_lockonbullet_list, boss_fight, bullet_x,diagonalbullet_x,boss_diagonalbullet_list,boss_shoot_hanker, boss_movement_hanker, text_hanker, explosion_hanker, player_explosion_list, player_is_dead, game_started, bullet_list, enemy2_bullet_list, boss_bullet_list, enemy1_list, enemy2_list, enemy3_list, score, left, down, right, up
+    global player,time,boss_timer,boss_left,boss_right,boss_list,boss_damage_timer,boss_health, boss_damage,boss_escape, boss_lockonbullet_list, boss_fight, bullet_x,diagonalbullet_x,boss_diagonalbullet_list,boss_shoot_timer, boss_movement_timer, text_timer, explosion_timer, player_explosion_list, player_is_dead, game_started, bullet_list, enemy2_bullet_list, boss_bullet_list, enemy1_list, enemy2_list, enemy3_list, score, left, down, right, up
     player = Character(PLAYER_IMG,
                       [WIDTH/2,HEIGHT/2],
                       [0,0],30)
-    boss_hanker = 0
+    boss_timer = 0
     boss_list = []
     boss_left = 0
     boss_right = 0
@@ -161,11 +158,11 @@ def new_game():
     boss_diagonalbullet_list = []
     diagonalbullet_x = 112
     bullet_x = 49
-    boss_shoot_hanker = 0
-    boss_movement_hanker = 0
+    boss_shoot_timer = 0
+    boss_movement_timer = 0
     boss_escape = False
     boss_health = 0
-    boss_damage_hanker = 0
+    boss_damage_timer = 0
     boss_damage = False
     
     up = False
@@ -183,10 +180,10 @@ def new_game():
     explosion_list = []
     player_explosion_list = []
     
-    stage_hanker = 0
-    explosion_hanker = 0
-    text_hanker = 0
-    hanke = 0
+    stage_timer = 0
+    explosion_timer = 0
+    text_timer = 0
+    time = 0
     score = 0
 
     
@@ -196,12 +193,12 @@ class Bullet:
     def __init__(self, image, position, velocity, radius):
         self.pos = position
         self.vel = velocity
-        self.hanke = 0
+        self.time = 0
         self.image = image
         self.radius = radius
         
     def draw(self, canvas):
-        tile_center = [BULLET_WIDTH/2 + self.hanke%8*BULLET_WIDTH,
+        tile_center = [BULLET_WIDTH/2 + self.time%8*BULLET_WIDTH,
                        BULLET_HEIGHT/2]
         canvas.draw_image(self.image,
                      tile_center,
@@ -214,7 +211,7 @@ class Bullet:
         for i in range(2):
             self.pos[i] += self.vel[i]  
         if animated and cycles%5 == 0:
-            self.hanke += 1 
+            self.time += 1 
 
             
 # This is the class that creates the boss bullets that
@@ -223,12 +220,12 @@ class LockOnBullet:
     def __init__(self, image, position, velocity, radius):
         self.pos = position
         self.vel = velocity
-        self.hanke = 0
+        self.time = 0
         self.image = image
         self.radius = radius
         
     def draw(self, canvas):
-        tile_center = [LOCKONBULLET_WIDTH/2 + self.hanke%3*LOCKONBULLET_WIDTH,
+        tile_center = [LOCKONBULLET_WIDTH/2 + self.time%3*LOCKONBULLET_WIDTH,
                        LOCKONBULLET_HEIGHT/2]
         canvas.draw_image(self.image,
                      tile_center,
@@ -241,19 +238,19 @@ class LockOnBullet:
         for i in range(2):
             self.pos[i] += self.vel[i]              
         if animated and cycles%5 == 0:
-            self.hanke += 1            
+            self.time += 1            
         if player_is_dead == False:
             if boss_fight:
 # This line of code checks where the player is in respect
 # to the bullet and changes velocity so that the bullet
 # follows the player.
-                if player.pos[1] > self.pos[1] and self.vel[1] < 5 and self.hanke < 30:
+                if player.pos[1] > self.pos[1] and self.vel[1] < 5 and self.time < 30:
                     self.vel[1] += 0.5
-                elif player.pos[1] < self.pos[1] and self.vel[1] > -5 and self.hanke < 30:
+                elif player.pos[1] < self.pos[1] and self.vel[1] > -5 and self.time < 30:
                     self.vel[1] -= 0.5                         
-                if player.pos[0] > self.pos[0] and self.vel[0] < 5 and self.hanke < 30:
+                if player.pos[0] > self.pos[0] and self.vel[0] < 5 and self.time < 30:
                     self.vel[0] += 0.5
-                elif player.pos[0] < self.pos[0] and self.vel[0] > -5 and self.hanke < 30:
+                elif player.pos[0] < self.pos[0] and self.vel[0] > -5 and self.time < 30:
                     self.vel[0] -= 0.5
             else:
                 self.vel[1] = 5
@@ -265,12 +262,12 @@ class DiagonalBullet:
     def __init__(self, image, position, velocity, radius):
         self.pos = position
         self.vel = velocity
-        self.hanke = 0
+        self.time = 0
         self.image = image
         self.radius = radius
         
     def draw(self, canvas):
-        tile_center = [DIAGONALBULLET_WIDTH/2 + self.hanke%6*DIAGONALBULLET_WIDTH,
+        tile_center = [DIAGONALBULLET_WIDTH/2 + self.time%6*DIAGONALBULLET_WIDTH,
                        DIAGONALBULLET_HEIGHT/2]
         canvas.draw_image(self.image,
                      tile_center,
@@ -283,7 +280,7 @@ class DiagonalBullet:
         for i in range(2):
             self.pos[i] += self.vel[i]              
         if animated and cycles%5 == 0:
-            self.hanke += 1   
+            self.time += 1   
                         
                 
 # This is the class for creating explosions where
@@ -293,10 +290,10 @@ class Explosion:
         self.pos = position
         self.vel = velocity
         self.image = image
-        self.hanke = 0
+        self.time = 0
         self.size = EXPLOSION_SIZE
     def draw(self, canvas):
-        tile_center = [EXPLOSION_WIDTH/2 + self.hanke%5*EXPLOSION_WIDTH,
+        tile_center = [EXPLOSION_WIDTH/2 + self.time%5*EXPLOSION_WIDTH,
                        EXPLOSION_HEIGHT/2]
         canvas.draw_image(self.image,
                          tile_center,
@@ -309,7 +306,7 @@ class Explosion:
         for i in range(2):
             self.pos[i] += self.vel[i]            
         if animated and cycles%5 == 0:
-            self.hanke += 1   
+            self.time += 1   
 
             
 # This is the class for the basic enemy. It moves in a
@@ -319,11 +316,11 @@ class Enemy1:
         self.pos = position
         self.vel = velocity
         self.image = image
-        self.hanke = 0
+        self.time = 0
         self.radius = radius
         self.size = ENEMY1_SIZE
     def draw(self, canvas):
-        tile_center = [ENEMY1_WIDTH/2 + self.hanke%8*ENEMY1_WIDTH,
+        tile_center = [ENEMY1_WIDTH/2 + self.time%8*ENEMY1_WIDTH,
                        ENEMY1_HEIGHT/2]
         canvas.draw_image(self.image,
                          tile_center,
@@ -336,7 +333,7 @@ class Enemy1:
         for i in range(2):
             self.pos[i] += self.vel[i]            
         if animated and cycles%5 == 0:
-            self.hanke += 1 
+            self.time += 1 
             
     def has_collided(self, other):
         return self.radius+other.radius>=dist(self.pos,other.pos)        
@@ -349,11 +346,11 @@ class Enemy2:
         self.pos = position
         self.vel = velocity
         self.image = image
-        self.hanke = 0
+        self.time = 0
         self.radius = radius
         self.size = ENEMY2_SIZE
     def draw(self, canvas):
-        tile_center = [ENEMY2_WIDTH/2 + self.hanke%8*ENEMY2_WIDTH,
+        tile_center = [ENEMY2_WIDTH/2 + self.time%8*ENEMY2_WIDTH,
                        ENEMY2_HEIGHT/2]
         canvas.draw_image(self.image,
                          tile_center,
@@ -363,11 +360,11 @@ class Enemy2:
         #canvas.draw_circle(self.pos,self.radius,1,"Red")
         
     def update(self):
-        global enemy2_shoot_hanker
+        global enemy2_shoot_timer
         for i in range(2):
             self.pos[i] += self.vel[i]            
         if animated and cycles%5 == 0:
-            self.hanke += 1
+            self.time += 1
 # If the player is dead, enemies stop moving and shooting      
         if player_is_dead == False:
             if boss_fight:
@@ -375,8 +372,8 @@ class Enemy2:
             else:
                 if self.pos[1] > 30:
                     self.vel[1] = 0
-# This is the hanker that determines how fast it shoots
-                enemy2_shoot_hanker += 1    
+# This is the timer that determines how fast it shoots
+                enemy2_shoot_timer += 1    
 # This line makes the enemy follow the player
 # horizontally
                 if player.pos[0] > self.pos[0]+10:
@@ -403,17 +400,17 @@ class Enemy2:
 
     
 # This is the class for the third enemy. It follows the
-# player of a duration of hanke
+# player of a duration of time
 class Enemy3:
     def __init__(self, image, position, velocity, radius):
         self.pos = position
         self.vel = velocity
         self.image = image
-        self.hanke = 0
+        self.time = 0
         self.radius = radius
         self.size = ENEMY3_SIZE
     def draw(self, canvas):
-        tile_center = [ENEMY3_WIDTH/2 + self.hanke%8*ENEMY3_WIDTH,
+        tile_center = [ENEMY3_WIDTH/2 + self.time%8*ENEMY3_WIDTH,
                        ENEMY3_HEIGHT/2]
         canvas.draw_image(self.image,
                          tile_center,
@@ -427,18 +424,18 @@ class Enemy3:
         for i in range(2):
             self.pos[i] += self.vel[i]            
         if animated and cycles%5 == 0:
-            self.hanke += 1
+            self.time += 1
         if player_is_dead == False:
             if boss_fight:
                 self.vel[1] = 5                
             else:
-                if player.pos[1] > self.pos[1] and self.vel[1] < 5 and self.hanke < 30:
+                if player.pos[1] > self.pos[1] and self.vel[1] < 5 and self.time < 30:
                     self.vel[1] += 0.5
-                elif player.pos[1] < self.pos[1] and self.vel[1] > -5 and self.hanke < 30:
+                elif player.pos[1] < self.pos[1] and self.vel[1] > -5 and self.time < 30:
                     self.vel[1] -= 0.5                     
-                if player.pos[0] > self.pos[0] and self.vel[0] < 5 and self.hanke < 30:
+                if player.pos[0] > self.pos[0] and self.vel[0] < 5 and self.time < 30:
                     self.vel[0] += 0.5
-                elif player.pos[0] < self.pos[0] and self.vel[0] > -5 and self.hanke < 30:
+                elif player.pos[0] < self.pos[0] and self.vel[0] > -5 and self.time < 30:
                     self.vel[0] -= 0.5
         else:
             self.vel = [0,0]
@@ -450,18 +447,18 @@ class Enemy3:
 # This is the class for the boss. He will move right and
 # left on the screen while firing bullets, lock on
 # bullets, and diagonal bullets. The player needs to hit
-# him 20 hankes where he then flies away and come again
+# him 20 times where he then flies away and come again
 # later
 class Boss:
     def __init__(self, image, position, velocity, radius):
         self.pos = position
         self.vel = velocity
         self.image = image
-        self.hanke = 0
+        self.time = 0
         self.radius = radius
         self.size = BOSS_SIZE
     def draw(self, canvas):
-        tile_center = [BOSS_WIDTH/2 + self.hanke%4*BOSS_WIDTH,
+        tile_center = [BOSS_WIDTH/2 + self.time%4*BOSS_WIDTH,
                        BOSS_HEIGHT/2]
         canvas.draw_image(self.image,
                          tile_center,
@@ -471,19 +468,19 @@ class Boss:
         #canvas.draw_polygon([(self.pos[0]-250,self.pos[1]+60),(self.pos[0]-250,self.pos[1]-60),(self.pos[0]+250,self.pos[1]-60),(self.pos[0]+250,self.pos[1]+60)],2,"#fa471f")
         
     def update(self):
-        global boss_damage, boss_damage_hanker, boss_shoot_hanker, boss_movement_hanker, boss_left, boss_right
+        global boss_damage, boss_damage_timer, boss_shoot_timer, boss_movement_timer, boss_left, boss_right
         for i in range(2):
             self.pos[i] += self.vel[i]            
         if animated and cycles%5 == 0:
-            self.hanke += 1           
+            self.time += 1           
 # For this line, when the boss takes damage, the boss
 # images is replaced with a "damaged" version for a
 # short period
-        if boss_damage and boss_damage_hanker < 10:
-            boss_damage_hanker += 1
+        if boss_damage and boss_damage_timer < 10:
+            boss_damage_timer += 1
         else:
             boss_damage = False
-            boss_damage_hanker = 0             
+            boss_damage_timer = 0             
         if boss_damage: 
             self.image = BOSS_HIT_IMG
         else:
@@ -493,7 +490,7 @@ class Boss:
                 self.vel[1] = -5
             elif self.pos[1] == 30:
                 self.vel[1] = 0
-                boss_shoot_hanker += 1                
+                boss_shoot_timer += 1                
 # This line of code makes the Boss move left or right
 # on the screen. When he's on the edge of the screen,
 # he will move back towards the middle. The direction
@@ -504,38 +501,38 @@ class Boss:
                 self.vel[0] = 0
             elif self.pos[0] == 400:
                 self.vel[0] = 0
-                if boss_movement_hanker < 60:
-                    boss_movement_hanker += 1
+                if boss_movement_timer < 60:
+                    boss_movement_timer += 1
                 elif boss_left == 2:
                     self.vel[0] = 5
-                    boss_movement_hanker = 0
+                    boss_movement_timer = 0
                 elif boss_right == 2:
                     self.vel[0] = -5
-                    boss_movement_hanker = 0
+                    boss_movement_timer = 0
                 else:
                     self.vel[0] = random.choice([5,-5])
-                    boss_movement_hanker = 0
+                    boss_movement_timer = 0
                 boss_spawned = True
             elif self.pos[0] < 100:
                 self.vel[0] = 0                
-                if boss_movement_hanker == 60:
+                if boss_movement_timer == 60:
                     boss_left += 1
                 boss_right = 0               
-                if boss_movement_hanker < 60:
-                    boss_movement_hanker += 1
+                if boss_movement_timer < 60:
+                    boss_movement_timer += 1
                 else:   
                     self.vel[0] = 5
-                    boss_movement_hanker = 0
+                    boss_movement_timer = 0
             elif self.pos[0] > 700:
                 self.vel[0] = 0               
-                if boss_movement_hanker == 60:
+                if boss_movement_timer == 60:
                     boss_right += 1
                 boss_left = 0                
-                if boss_movement_hanker < 60:
-                    boss_movement_hanker += 1
+                if boss_movement_timer < 60:
+                    boss_movement_timer += 1
                 else:   
                     self.vel[0] = -5
-                    boss_movement_hanker = 0
+                    boss_movement_timer = 0
         else:
             self.vel = [0,0]
             
@@ -544,7 +541,7 @@ class Boss:
         if self.pos[1] >= 30 and self.vel[0] != 0 and player_is_dead == False:
             ENEMY_SHOOT_SND.rewind()
             ENEMY_SHOOT_SND.play()
-# This line of codes makes it so everyhanke the boss
+# This line of codes makes it so everytime the boss
 # shoots, the bullet spawns alternates between 3
 # different pairs of cannons
             if bullet_x == 49:
@@ -605,16 +602,16 @@ class Boss:
 # This function resets all boss variables, gives the
 # player score points and allows the stage to progress
     def death(self):
-        global boss_health,boss_fight,boss_escape,boss_movement_hanker,boss_shoot_hanker,boss_hanker,score,hanke
+        global boss_health,boss_fight,boss_escape,boss_movement_timer,boss_shoot_timer,boss_timer,score,time
         if boss_health == 20:
             boss_escape = True
             boss_health = 0
             boss_fight = False
-            boss_movement_hanker = 0
-            boss_shoot_hanker = 0
-            boss_hanker = 0
+            boss_movement_timer = 0
+            boss_shoot_timer = 0
+            boss_timer = 0
             score += 10000
-            hanke+= 1
+            time+= 1
 
             
 # This is the class for the character. It can move and
@@ -624,12 +621,12 @@ class Character:
         self.image = image
         self.pos = position
         self.vel = velocity
-        self.hanke = 0
+        self.time = 0
         self.radius = radius
 
         
     def draw(self, canvas): 
-        tile_center = [PLAYER_WIDTH/2 + self.hanke%8*PLAYER_WIDTH,
+        tile_center = [PLAYER_WIDTH/2 + self.time%8*PLAYER_WIDTH,
                        PLAYER_HEIGHT/2]
         canvas.draw_image(self.image,
                      tile_center,
@@ -641,8 +638,8 @@ class Character:
     def update(self):
         global shoot_cooldown
         if animated and cycles%5 == 0:
-            self.hanke += 1
-        self.hanke %= 8
+            self.time += 1
+        self.time %= 8
         self.pos[0] += self.vel[0]
         self.pos[1] += self.vel[1]          
 # This line stops the player from going off screen and
@@ -786,7 +783,7 @@ def key_down(key):
     
     
 def draw(canvas):
-    global bullet, hanke,explosion_hanker, player_explosion_list,boss_hanker, boss_fight, boss_damage, boss_movement_hanker, boss_shoot_hanker,boss_bullet, boss_health, boss_escape, stage_hanker, text_hanker, stage, bullet,enemy2_bullet, player_is_dead, cycles, highscore, score, enemy2_respawn_hanker, enemy2_respawn, enemy3_respawn_hanker, enemy3_respawn
+    global bullet, time,explosion_timer, player_explosion_list,boss_timer, boss_fight, boss_damage, boss_movement_timer, boss_shoot_timer,boss_bullet, boss_health, boss_escape, stage_timer, text_timer, stage, bullet,enemy2_bullet, player_is_dead, cycles, highscore, score, enemy2_respawn_timer, enemy2_respawn, enemy3_respawn_timer, enemy3_respawn
     cycles += 1
 # These lines update the volume of the sound effects
 # and music
@@ -817,15 +814,15 @@ def draw(canvas):
     elif player_is_dead:
         player_death = Explosion(EXPLOSION_IMG, [player.pos[0],player.pos[1]-10],[0,0])
         if player_explosion_list != []:
-            explosion_hanker += 1
-        if player_explosion_list == [] and explosion_hanker < 21:
+            explosion_timer += 1
+        if player_explosion_list == [] and explosion_timer < 21:
             player_explosion_list.append(player_death)
-        if explosion_hanker > 20:
+        if explosion_timer > 20:
             player_explosion_list = []
             
     if game_started:
         MENU.rewind()
-# When there isn't a boss fight, the hanker goes up and 
+# When there isn't a boss fight, the timer goes up and 
 #determines when next stage happens
         if boss_fight:
             BOSS.play()
@@ -833,8 +830,8 @@ def draw(canvas):
         else:
             GAME.play()
             BOSS.rewind()
-            hanke += 1            
-# If the player is alive, the score increases over hanke
+            time += 1            
+# If the player is alive, the score increases over time
         if player_is_dead == False:    
             score += 1            
 # Sets the high score for the session and replaces it if
@@ -845,35 +842,35 @@ def draw(canvas):
 # These lines of code control the enemy spawns, spawn
 # position, and initial velocity
         if boss_fight == False:
-            if hanke % 30 == 0:
+            if time % 30 == 0:
                 x1 = random.randrange(WIDTH)
                 y1 = 0
                 pos1 = [x1,y1]
                 vx1 = 0                
-                if hanke < 360:
+                if time < 360:
                     vy1 = 5
                 else:
                     vy1 = 10
                 vel1 = [vx1,vy1]
                 enemy1 = Enemy1(ENEMY1_IMG,pos1,vel1,30)                
-                if hanke < 360:
-                    if hanke %60:
+                if time < 360:
+                    if time %60:
                         enemy1_list.append(enemy1)
                 else: 
                     enemy1_list.append(enemy1)
                     
 # For this line, when one of the shooting enemies is on 
 # screen, it won't spawn anymore of it and after the 
-# enemy dies, a hanker starts before it respawns.
-# every enemy type after the first spawns once the hanke
+# enemy dies, a timer starts before it respawns.
+# every enemy type after the first spawns once the time
 # has reached a certain point
-            if enemy2_list == [] and hanke > 2520 and player_is_dead == False:
+            if enemy2_list == [] and time > 2520 and player_is_dead == False:
                 enemy2_respawn = True
             else:
                 enemy2_respawn = False                
             if enemy2_respawn:
-                enemy2_respawn_hanker += 1                 
-            if enemy2_list == [] and hanke > 2520 and enemy2_respawn_hanker %180 == 0 and player_is_dead == False and boss_fight == False:
+                enemy2_respawn_timer += 1                 
+            if enemy2_list == [] and time > 2520 and enemy2_respawn_timer %180 == 0 and player_is_dead == False and boss_fight == False:
                 x2 = random.randrange(WIDTH)
                 y2 = 0
                 pos2 = [x2,y2]
@@ -882,14 +879,14 @@ def draw(canvas):
                 vel2 = [vx2,vy2]
                 enemy2 = Enemy2(ENEMY2_IMG,pos2,vel2,30)
                 enemy2_list.append(enemy2)                 
-            if hanke > 4680 and player_is_dead == False:
+            if time > 4680 and player_is_dead == False:
                 enemy3_respawn = True
             else:
                 enemy3_respawn = False               
             if enemy3_respawn:
-                enemy3_respawn_hanker += 1
+                enemy3_respawn_timer += 1
                 
-            if hanke > 4680 and enemy3_respawn_hanker %180 == 0 and player_is_dead == False and boss_fight == False:       
+            if time > 4680 and enemy3_respawn_timer %180 == 0 and player_is_dead == False and boss_fight == False:       
                 if player.pos[0] > 400:
                     x3 = 0
                 else:
@@ -904,7 +901,7 @@ def draw(canvas):
                 
         if boss_list == []:
             boss_escape = False
-        if boss_list == [] and boss_hanker > 540 and boss_fight:
+        if boss_list == [] and boss_timer > 540 and boss_fight:
             x2 = WIDTH/2
             y2 = -90
             pos2 = [x2,y2]
@@ -932,7 +929,7 @@ def draw(canvas):
         for enemy2 in enemy2_list:
             enemy2.draw(canvas)
             enemy2.update()
-            if enemy2_shoot_hanker % 60 == 0:
+            if enemy2_shoot_timer % 60 == 0:
                 enemy2.shoot()
             if enemy2.pos[1]<-30:
                 enemy2_list.remove(enemy2)
@@ -946,7 +943,7 @@ def draw(canvas):
         for enemy3 in enemy3_list:
             enemy3.draw(canvas)
             enemy3.update()
-            if enemy3.hanke > 30:
+            if enemy3.time > 30:
                 if enemy3.pos[1]>820 or enemy3.pos[1]<-20 or enemy3.pos[0]>820 or enemy3.pos[0]<-20:
                     enemy3_list.remove(enemy3)
             if enemy3.has_collided(player):
@@ -975,11 +972,11 @@ def draw(canvas):
             if boss.pos[1] < -90 and boss_escape:
                 boss_list.remove(boss)
             if boss_escape == False:    
-                if boss_shoot_hanker %10 == 0:
+                if boss_shoot_timer %10 == 0:
                     boss.shoot()
-                if boss_shoot_hanker % 120 == 0:
+                if boss_shoot_timer % 120 == 0:
                     boss.shootlockon()
-                if boss_shoot_hanker % 10 == 0:
+                if boss_shoot_timer % 10 == 0:
                     boss.shootdiagonal()   
             if boss.has_collided(player):
                 if player_is_dead == False:
@@ -1017,7 +1014,7 @@ def draw(canvas):
         for boss_lockonbullet in boss_lockonbullet_list:
             boss_lockonbullet.draw(canvas)
             boss_lockonbullet.update()
-            if boss_lockonbullet.hanke > 30:
+            if boss_lockonbullet.time > 30:
                 if boss_lockonbullet.pos[1]>802 or boss_lockonbullet.pos[1]<-2 or boss_lockonbullet.pos[0]>802 or boss_lockonbullet.pos[0]<-2:
                     boss_lockonbullet_list.remove(boss_lockonbullet)
             if player.has_collided(boss_lockonbullet):
@@ -1107,45 +1104,45 @@ def draw(canvas):
         if player_is_dead == False:
 # This set of code is for the transition text, when the
 # player transitions to the next stage        
-            if hanke < 360: 
-                if text_hanker < 60:
-                    text_hanker += 1
+            if time < 360: 
+                if text_timer < 60:
+                    text_timer += 1
                     canvas.draw_text("Warmup",(340,200),35,"white","monospace")
                     stage = "Warmup"
-            if hanke > 360 and hanke < 2520:
-                if text_hanker >= 60 and text_hanker < 120:
-                    text_hanker += 1
+            if time > 360 and time < 2520:
+                if text_timer >= 60 and text_timer < 120:
+                    text_timer += 1
                     canvas.draw_text("Stage 1",(340,200),35,"white","monospace")
                     canvas.draw_text("Faster Enemies",(280,240),35,"white","monospace")
                     stage = "Stage 1"
-            if hanke > 2520 and hanke < 4680:
-                if text_hanker >= 120 and text_hanker < 180:
-                    text_hanker += 1
+            if time > 2520 and time < 4680:
+                if text_timer >= 120 and text_timer < 180:
+                    text_timer += 1
                     canvas.draw_text("Stage 2",(340,200),35,"white","monospace")
                     canvas.draw_text("New Enemy",(320,240),35,"white","monospace")
                     stage = "Stage 2"
-            if hanke > 4680 and hanke < 6840:
-                if text_hanker >= 180 and text_hanker < 240:
-                    text_hanker += 1
+            if time > 4680 and time < 6840:
+                if text_timer >= 180 and text_timer < 240:
+                    text_timer += 1
                     canvas.draw_text("Stage 3",(340,200),35,"white","monospace")
                     canvas.draw_text("New Enemy",(320,240),35,"white","monospace")
                     stage = "Stage 3"
-            if hanke %3420 == 0 and hanke >= 6840:
+            if time %3420 == 0 and time >= 6840:
                 boss_fight = True
             if boss_fight == True:  
-                boss_hanker += 1
-                if boss_hanker > 360 and boss_hanker < 540:
-                    if boss_hanker % 4 < 2:
+                boss_timer += 1
+                if boss_timer > 360 and boss_timer < 540:
+                    if boss_timer % 4 < 2:
                         canvas.draw_text("ALERT",(357,170),35,"red","monospace")
                         canvas.draw_text("Boss Fight",(312,200),35,"red","monospace")
-                    if boss_hanker % 4 >= 2:
+                    if boss_timer % 4 >= 2:
                         canvas.draw_text("ALERT",(357,170),35,"white","monospace")    
                         canvas.draw_text("Boss Fight",(312,200),35,"white","monospace")
                 if boss_fight == 6840:
                     stage = "Boss Fight"
-            if hanke > 6840 and boss_fight == False:
-                if text_hanker >=240  and text_hanker < 300:
-                    text_hanker += 1
+            if time > 6840 and boss_fight == False:
+                if text_timer >=240  and text_timer < 300:
+                    text_timer += 1
                     canvas.draw_text("Endless Mode",(280,200),35,"white","monospace")
                     stage = "Endless Mode"
                     
