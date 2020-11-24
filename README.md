@@ -1,6 +1,3 @@
-
-### Hi there, I'm [Panayiotis!](https://panayiotisleon1.wixsite.com/eportfolio) 👋
-
 ### Hi there 👋
 
 - 🔭 I’m currently working at RBC as a software developer intern. 
