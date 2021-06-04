@@ -14,7 +14,7 @@
   
 </div>
 
-### My Project's Tech Stacks
+### My Work and Project's Tech Stacks
 
 <br>
 <p align="center">
