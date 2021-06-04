@@ -14,11 +14,11 @@
   
 </div>
 
-<p align="center" width="50" height="50">
+<div align="center">
   
 ### My Work and Project's Tech Stacks
   
-</p>
+</div>
 
 <br>
 <p align="center">
