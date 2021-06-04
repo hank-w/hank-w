@@ -1,6 +1,6 @@
 <h2> <img src="https://emojis.slackmojis.com/emojis/images/1588315024/8823/hyperkitty.gif?1588315024" width="30" /> Hi there! Nice to e-meet you!👋 hope you're having a wonderful day! 🙂</h2>
 <p align="center" width="50" height="50">
-  <img src="https://github.com/hank-w/hank-w/blob/master/code.gif">
+  <img src="https://github.com/hank-w/hank-w/blob/master/code.gif" width="50%" height="50%">
 </p>
 <div align="center" width="50">
   
