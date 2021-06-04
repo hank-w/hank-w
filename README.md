@@ -1,6 +1,6 @@
 ### Hi there! 👋 Nice to meet you, hope you're having a wonderful day! 🙂 
 
-- 🔭 I’m currently looking for internships! I've worked at RBC for software engineering, AVRIL for machine learning! Previously led Waterloop's linear induction motor team! 
+- 🔭 I’m currently looking for internships! I've worked at RBC for software engineering, AVRIL for machine learning! Previously led Waterloop's (SpaceX Hyperloop Competition) linear induction motor team and currently on the firmware team for Midnight Sun! 
 - 💬 Feel free to ask me about any of my projects! I'm currently studying mechatronics engineering at the University of Waterloo.
 - 📫 How to reach me: Email me at hank.j.wu@gmail.com or hank.wu@uwaterloo.ca. You can also book a meeting at: [calendly.com/hank-w](https://calendly.com/hank-w) 🙂 
 
