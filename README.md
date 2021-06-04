@@ -2,6 +2,7 @@
 <p align="center">
   <img src="https://github.com/demartini/demartini/blob/master/code.gif">
 </p>
+### Vibing to : 🎧  <!--img src="https://media.giphy.com/media/kC8QA2OYWOADK0e1Uk/giphy.gif" width="30" style="padding-top: 10px;" -->
 
 - 🔭 I’m currently looking for internships! I've worked at RBC for software engineering, AVRIL for machine learning, and more! 
 - ⚙️ Previously led Waterloop's (SpaceX Hyperloop Competition) linear induction motor team. Firmware team member for Midnight Sun! 
