@@ -1,4 +1,4 @@
-<h2> <img src="https://emojis.slackmojis.com/emojis/images/1588315024/8823/hyperkitty.gif?1588315024" width="30" /> Hi there! Nice to e-meet you! 👋 hope you're having a wonderful day! 🙂 </h2>
+<h2> <img src="https://emojis.slackmojis.com/emojis/images/1588315024/8823/hyperkitty.gif?1588315024" width="30" /> Hi there! Nice to e-meet you!👋 hope you're having a wonderful day! 🙂</h2>
 <p align="center">
   <img src="https://github.com/demartini/demartini/blob/master/code.gif">
 </p>
