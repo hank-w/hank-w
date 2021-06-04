@@ -16,7 +16,7 @@
 
 <div align="center">
   
-### <u>My Work and Project's Tech Stacks</u>
+### <u>My Work and Project's Tech Stacks :</u>
   
 </div>
 
