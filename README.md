@@ -19,12 +19,14 @@
   <img src="https://media3.giphy.com/media/ln7z2eWriiQAllfVcn/200w.webp" width="100"><img src="https://i.giphy.com/media/LMt9638dO8dftAjtco/200.webp" width="100"><img src="https://i.giphy.com/media/eNAsjO55tPbgaor7ma/200w.webp" width="100"><img src="https://i.giphy.com/media/VgGthkhUvGgOit7Y9i/200.webp" width="100"><img src="https://i.giphy.com/media/KzJkzjggfGN5Py6nkT/200.webp" width="100"><img src="https://i.giphy.com/media/IdyAQJVN2kVPNUrojM/200.webp" width="100"><br><br>
   <img src="https://camo.githubusercontent.com/936a08778c7e4885053d148c07bbd2339dfbdd80/68747470733a2f2f6665726f73732e6e65742f782f6e6f6465322e676966" /><br><br>
 </p>
-<br>
+
 
 <div align="center">
  <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/c-original.svg' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/cpp.svg' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/pycharm.svg' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/python2.png' height='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/flutter-logo.svg' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/html.svg' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/css.svg' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/js.svg' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/bootstrap.svg' width='33'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/django.svg' height='40'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/flask.png' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/php.svg' width='40'/>
  <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/sql.svg' width='30'/> <img src = 'https://github.com/RaghavK16/RaghavK16/blob/master/images/git.svg' width='30'/>
 </div>
+
+
 
 - <img src="https://github.com/hank-w/hank-w/blob/master/laptop.gif?raw=true" width="25" /> I’m currently looking for internships! I've worked at RBC for software engineering, AVRIL for machine learning, and more! 
 - <img src="https://github.com/hank-w/hank-w/blob/master/gear.gif?raw=true" width="25" /> Previously led Waterloop's (SpaceX Hyperloop Competition) linear induction motor team. Firmware team member for Midnight Sun! 
