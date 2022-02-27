@@ -35,7 +35,7 @@
 
 
 - <img src="https://github.com/hank-w/hank-w/blob/master/laptop.gif?raw=true" width="25" /> I’m currently looking for internships! I've worked at RBC, Athos, FreshBooks as a software engineering intern, machine learning at AVRIL! 
-- <img src="https://github.com/hank-w/hank-w/blob/master/gear.gif?raw=true" width="25" /> I've led Waterloop's (SpaceX Hyperloop Competition) linear induction motor team. Autonomous vehicle team member for UWAFT! 
+- <img src="https://github.com/hank-w/hank-w/blob/master/gear.gif?raw=true" width="25" /> I've led Waterloop's (SpaceX Hyperloop Competition) linear induction motor team. Autonomous vehicle team lead for UWAFT! 
 - <img src="https://github.com/hank-w/hank-w/blob/master/message.gif?raw=true" width="25" /> Feel free to ask me about any of my projects! I'm currently studying mechatronics engineering, software engineering specialization at the University of Waterloo.
 - <img src="https://github.com/hank-w/hank-w/blob/master/letterbox.gif?raw=true" width="25" /> How to reach me: Email me at hank.j.wu@gmail.com or hank.wu@uwaterloo.ca. 
 You can also book a meeting at: [calendly.com/hank-w](https://calendly.com/hank-w) 🙂 
